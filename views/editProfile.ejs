@@ -1,0 +1,120 @@
+
+</html>
+<head>
+    <title>Edit Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/editProfile.css" />
+</head>
+
+<header>
+    <!-- <nav class="headernavigation"> -->
+    <ul class="menu">
+        <li><a href="http://localhost:3000/">Home</a>
+        <li><a href="http://localhost:3000/members">Members</a></li>
+    </ul>
+    <!--end of More Submenu-->
+    </li>
+    <!--end of More list-->
+    </ul>
+
+    </nav>
+    <!--end of navigation bar-->
+
+    <h1 id="headerH1"> Greetings, World!</h1>
+    <div id="headerBtns">
+        <%if (logInName){ %>
+        <%if (members){ %>
+
+        <% for (let i = 0; i < members.length; i++){ %>
+
+        <%if (members[i].name == logInName){ %>
+
+        <div class="headerPhotoDiv">
+            <%if (members[i].profilePhoto){ %>
+            <img class="headerProfilePhoto" src="./photos/profilePhotos/<%= members[i].profilePhoto %>" />
+            <%  } else %>
+            <%if (!(members[i].profilePhoto)){ %>
+            <img class="headerProfilePhoto" src="./photos/player_icon copy.png" />
+            <%  } %>
+        </div>
+        <form id="logOutForm" action="/logOut" method="POST">
+            <button id="logOut" type="submit">Log Out</button>
+        </form>
+        <form id="editProfile" action="editProfile/<%= logInName %>" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="editProfileBtn" type="submit">Edit Profile</button>
+        </form>
+        <form id="profilePhoto" action="/profilePhoto" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="addProfilePhotoBtn" type="submit">Add Profile Photo</button>
+        </form>
+
+
+        <a href="http://localhost:3000/createcard"><button>Create Card</button></a>
+        <a href="http://localhost:3000/inbox"><button>Inbox</button></a>
+        <a href="http://localhost:3000/sent"><button>Sent</button></a>
+
+        <%  } %>
+
+        <%  } %>
+
+        <%  } %>
+
+        <h1 id="loggedInAs">"Hello <%= logInName %> !"</h1>
+
+        <%  } %>
+    </div>
+    <!--end headerBtns-->
+</header>
+
+
+<body>
+
+    <!--============================================
+                EDIT PROFILE
+    ==============================================-->
+    <%if (profileToEdit){ %>
+    <div id="editProfileWrapper">
+        <form id="editProfileForm" name="editProfile" action="/profileEdited" method="POST">
+            <div id="editProfileBody">
+                <div id="left">
+                    <h1 class="editProfile">Edit Profile</h1>
+                    <h2>User name:</h2>
+                    <p id="name"><%= profileToEdit[0].name %></p>
+                    <input type="text" name="profileId" value="<%= profileToEdit[0]._id %>" style="display:none;" />
+
+                    <h2>Edit Password:</h2>
+                    <p id="editPswdP" style="display:none;"><%= profileToEdit[0].password %></p>
+                    <input type="password" id="editPswdInput" name="password" required />
+
+                    <h2>Confirm Password:</h2>
+                    <input type="password" id="confirmPswd" required />
+                    <br>
+                                                <span id="pswdsMustMatch" style="color:red"><%= pswdsMustMatch %></span>
+
+                </div>
+                <div id="right">
+                    <p id="bioP" style="display:none;"><%= profileToEdit[0].bio %></p>
+                    <h2>Bio:<span style="font-size:10px; font-weight:normal;" </span>(1500 characters max)</span> </h2>
+                            <textarea id="bioInput" name="bio" cols=45 rows=25 maxlength="1500"></textarea>
+                </div>
+            </div>
+            <!--end editProfileBody-->
+            <div class="editProfile">
+                <input id="cancel" type="submit" name="submit" value="cancel" />
+                <input type="submit" name="submit" value="save" />
+            </div>
+            <!--end editProfileButtons-->
+        </form>
+    </div>
+    <!--end editProfileWrapper-->
+    <%  } %>
+
+
+
+    <script src="js/editProfile.js"></script>
+</body>
+
+</html>

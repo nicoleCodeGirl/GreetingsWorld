@@ -1,0 +1,270 @@
+<html>
+
+<head>
+    <title>Create Card</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/card.css" />
+</head>
+
+<header>
+    <!-- <nav class="headernavigation"> -->
+    <ul class="menu">
+        <li><a href="http://localhost:3000/">Home</a>
+        <li><a href="http://localhost:3000/members">Members</a></li>
+
+
+    </ul>
+    <!--end of More Submenu-->
+    </li>
+    <!--end of More list-->
+    </ul>
+
+    </nav>
+    <!--end of navigation bar-->
+
+    <h1 id="headerH1"> Greetings, World!</h1>
+    <div id="headerBtns">
+        <%if (logInName){ %>
+        <%if (members){ %>
+
+        <% for (let i = 0; i < members.length; i++){ %>
+
+        <%if (members[i].name == logInName){ %>
+
+        <div class="headerPhotoDiv">
+            <%if (members[i].profilePhoto){ %>
+            <img class="headerProfilePhoto" src="./photos/profilePhotos/<%= members[i].profilePhoto %>" />
+            <%  } else %>
+            <%if (!(members[i].profilePhoto)){ %>
+            <img class="headerProfilePhoto" src="./photos/player_icon copy.png" />
+            <%  } %>
+        </div>
+        <form id="logOutForm" action="/logOut" method="POST">
+            <button id="logOut" type="submit">Log Out</button>
+        </form>
+        <form id="editProfile" action="editProfile/<%= logInName %>" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="editProfileBtn" type="submit">Edit Profile</button>
+        </form>
+        <form id="profilePhoto" action="/profilePhoto" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="addProfilePhotoBtn" type="submit">Add Profile Photo</button>
+        </form>
+
+
+        <a href="http://localhost:3000/createcard"><button>Create Card</button></a>
+        <a href="http://localhost:3000/inbox"><button>Inbox</button></a>
+        <a href="http://localhost:3000/sent"><button>Sent</button></a>
+
+        <%  } %>
+
+        <%  } %>
+
+        <%  } %>
+
+        <h1 id="loggedInAs">"Hello <%= logInName %> !"</h1>
+
+        <%  } %>
+    </div>
+    <!--end headerBtns-->
+</header>
+
+
+<body>
+    <div id="contentWrapper">
+        <div id="generaterWrapper">
+            <div id="div1">Greeting Card Generator</div>
+            <div id="div2">
+                <span>Choose your card qualities:</span>
+
+                <form id="createCardForm" action="/createcard" method="POST">
+                    <div>
+                        Greeting on front:
+                        <input type="text" id="greet" maxlength="125" name="greeting" autocomplete="off" />
+                    </div>
+
+                    <div id="selectImgWrapper">
+                        Image on front:
+                        <div id="selectImgDiv">
+                            <img class="selectedImg" src="photos/redRose.jpeg" alt="red rose" />
+                            <img class="selectedImg" src="photos/gift1.jpeg" alt="gift1" />
+                            <img class="selectedImg" src="photos/gift2.jpeg" alt="gift2" />
+                            <img class="selectedImg" src="photos/snowman.jpeg" alt="snowman" />
+                            <img class="selectedImg" src="photos/cartoonFlowers.jpeg" alt="cartoon flowers" />
+                            <img class="selectedImg" src="photos/cuteCat.jpeg" alt="cute cat" />
+                            <img class="selectedImg" src="photos/girlWithCamera.jpeg" alt="girl with camera" />
+                            <img class="selectedImg" src="photos/heartPassage.jpeg" alt="heart passage" />
+                            <img class="selectedImg" src="photos/pinkRoses.jpeg" alt="pink roses" />
+                            <img class="selectedImg" src="photos/purpleSunset.jpeg" alt="purple sunset" />
+                            <img class="selectedImg" src="photos/snowyWhite.jpeg" alt="snowy white" />
+                            <img class="selectedImg" src="photos/threeCrosses.jpeg" alt="three crosses" />
+                            <img class="selectedImg" src="photos/playhouse.jpeg" alt="playhouse" />
+                            <img class="selectedImg" src="photos/womanAndSunset.jpeg" alt="woman and sunset" />
+                            <img class="selectedImg" src="photos/alphabets1.jpeg" alt="alphabets1" />
+                            <img class="selectedImg" src="photos/alphabets2.jpeg" alt="alphabets2" />
+                            <img class="selectedImg" src="photos/balloonBaby.jpeg" alt="balloon baby" />
+                            <img class="selectedImg" src="photos/play.jpeg" alt="play" />
+                            <img class="selectedImg" src="photos/redHeartTree.jpeg" alt="red heart tree" />
+                            <img class="selectedImg" src="photos/toys.jpeg" alt="toys" />
+                            <img class="selectedImg" src="photos/minions.jpeg" alt="minions" />
+                            <img class="selectedImg" src="photos/twoGirls.jpeg" alt="two girls" />
+                            <img class="selectedImg" src="photos/crayons.jpeg" alt="crayons" />
+                            <img class="selectedImg" src="photos/childsLove.jpeg" alt="childs love" />
+                            <img class="selectedImg" src="photos/teddyCarousel.jpeg" alt="teddy carousel" />
+                            <img class="selectedImg" src="photos/graduates1.jpeg" alt="graduates1" />
+                            <img class="selectedImg" src="photos/graduates2.jpeg" alt="graduates2" />
+                            <img class="selectedImg" src="photos/pinkPaperFlowers.jpeg" alt="pink paper flowers" />
+                            <img class="selectedImg" src="photos/hoorah.jpeg" alt="hoorah" />
+                            <img class="selectedImg" src="photos/heartWave.jpeg" alt="heart wave" />
+                            <img class="selectedImg" src="photos/hummingBird.jpeg" alt="humming bird" />
+                            <img class="selectedImg" src="photos/octopusWar.jpg" alt="octopus war" />
+                            <img class="selectedImg" src="photos/apple.jpeg" alt="apple" />
+                            <img class="selectedImg" src="photos/beauty.jpeg" alt="beauty" />
+                            <img class="selectedImg" src="photos/birdsSunset.jpeg" alt="birds in sunset" />
+                            <img class="selectedImg" src="photos/cake.jpeg" alt="cake" />
+                            <img class="selectedImg" src="photos/catInHand.jpg" alt="cat in hand" />
+                            <img class="selectedImg" src="photos/colorfulFlowers.jpeg" alt="colorful flowers" />
+                            <img class="selectedImg" src="photos/running.jpeg" alt="running" />
+                            <img class="selectedImg" src="photos/penguin.jpg" alt="penguin" />
+                            <img class="selectedImg" src="photos/puppyLove.jpeg" alt="puppy love" />
+                            <img class="selectedImg" src="photos/duck.jpeg" alt="duck" />
+                            <img class="selectedImg" src="photos/friends.jpeg" alt="friends" />
+                            <img class="selectedImg" src="photos/friends2.jpeg" alt="friends2" />
+
+                            <img class="selectedImg" src="photos/lovelyView.jpeg" alt="lovely view" />
+                            <img class="selectedImg" src="photos/makeup.jpeg" alt="makeup" />
+
+
+                            <img class="selectedImg" src="photos/whiteFlowers.jpeg" alt="white flowers" />
+
+                        </div>
+                    </div>
+                    <input id="imageInput" name="imagePath" />
+                    <label id="imgSelectedLabel">Image selected: <span id="imageSpan">red rose</span></label>
+
+                    <div>
+                        Image blend mode:
+                        <select name="imageBlend" id="cardBlend">
+                            <option value="normal" selected>normal</option>
+                            <option value="multiply">multiply</option>
+                            <option value="screen">screen</option>
+                            <option value="overlay">overlay</option>
+                            <option value="darken">darken</option>
+                            <option value="lighten">lighten</option>
+                            <option value="color-dodge">color-dodge</option>
+                            <option value="color-burn">color-burn</option>
+                            <option value="hard-light">hard-light</option>
+                            <option value="soft-light">soft-light</option>
+                            <option value="difference">difference</option>
+                            <option value="exclusion">exclusion</option>
+                            <option value="hue">hue</option>
+                            <option value="saturation">saturation</option>
+                            <option value="color">color</option>
+                            <option value="luminosity">luminosity</option>
+                        </select>
+                    </div>
+                    <div>
+                        Font-colour:
+                        <input type="color" id="cardFontColor" name="fontColour" />
+                    </div>
+                    <div>
+                        text-shadow colour:
+                        <input type="color" id="cardtextShadow" name="textShadow" />
+                    </div>
+                    <div>
+                        Recipient name:
+                        <input id="selectedName" style="display:none" type"text value="<%=selectedName%>">
+                        <select name="to" id="recipientName">
+
+                            <% if (members){ %>
+                            <% for (let i = 0; i < members.length; i++){ %>
+                            <% if(members[i].name != logInName){ %>
+
+                            <option><%= members[i].name %></option>
+
+                            <%  } %>
+
+
+                            <% } %>
+                            <% }else %>
+                            <% if (!(members) || members.length == 1){ %>
+
+                            <option>There are no other members</option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div>
+                        Background colour:
+                        <input type="color" id="cardbkgrndColor" name="backgroundColour" />
+                    </div>
+                    <div>
+                        Border style:
+                        <select name="borderStyle" id="cardBorder">
+                            <option value="solid" selected>solid (choose colour)</option>
+                            <option value="dotted">dotted (choose colour)</option>
+                            <option value="double">double (choose colour)</option>
+                            <option value="dashed">dashed (choose colour)</option>
+                            <option value="flowers">flowers</option>
+                            <option value="blue feathers">blue feathers</option>
+                            <option value="candy">candy</option>
+                            <option value="rainbow paint">rainbow paint</option>
+                            <option value="pink roses">pink roses</option>
+                            <option value="electric fractal">electric fractal</option>
+                            <option value="yellow fractal">yellow fractal</option>
+                        </select>
+                        <input type="color" id="borderColour" name="borderColour" />
+                    </div>
+
+                    <div>
+                        Type your message:
+                        <textarea id="msg" name="message" cols=40 rows=5 maxlength="326"></textarea>
+                    </div>
+                    <div>
+                        <input type="text" id="yourName" name="from" maxlength="40" style="display:none;"
+                            autocomplete="off" value="<%= logInName %>" />
+                    </div>
+                    <input type="button" value="make card" id="draw">
+                    <input type="submit" value="send card" id="send">
+                </form>
+
+            </div>
+            <!--end div2-->
+
+
+        </div>
+        <p id="cardPreviewP">Card Preview:</p>
+
+        <div class="Scroller">
+            <div class="Marquee">
+                <div class="Marquee-content">
+                    <div>
+                        <div class='Marquee-tag-Content'>
+                            SEND CARD
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="cardContainer">
+            <div id="front">
+                <h2 id="cardGreeting"></h2>
+                <img id="imgFront" src="photos/redRose.jpeg" />
+            </div>
+            <div id="inside">
+                <h2 id="cardRecipient"></h2>
+                <h3 id="cardMsg"></h3>
+                <h3 id="cardSender"></h3>
+            </div>
+        </div>
+    </div>
+    <!--end contentWrapper-->
+
+
+    <script src="js/card.js"></script>
+</body>
+
+</html>

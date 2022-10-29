@@ -1,0 +1,274 @@
+
+</html>
+<head>
+        <title>Home page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/header.css" />
+        <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<header>
+        <ul class="menu">
+                <li class="current"><a href="http://localhost:3000/">Home</a>
+                <li><a href="http://localhost:3000/members">Members</a></li>
+        </ul>
+
+        <h1 id="headerH1"> Greetings, World!</h1>
+
+
+
+
+        <div id="headerBtns">
+                <%if (logInName){ %>
+                <%if (members){ %>
+
+                <% for (let i = 0; i < members.length; i++){ %>
+
+                <%if (members[i].name == logInName){ %>
+
+                <div class="headerPhotoDiv">
+                        <%if (members[i].profilePhoto){ %>
+                        <img class="headerProfilePhoto" src="./photos/profilePhotos/<%= members[i].profilePhoto %>" />
+                        <%  } else %>
+                        <%if (!(members[i].profilePhoto)){ %>
+                        <img class="headerProfilePhoto" src="./photos/player_icon copy.png" />
+                        <%  } %>
+                </div>
+                <form id="logOutForm" action="/logOut" method="POST">
+                        <button id="logOut" type="submit">Log Out</button>
+                </form>
+                <form id="editProfile" action="editProfile/<%= logInName %>" method="POST">
+                        <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+                        <button id="editProfileBtn" type="submit">Edit Profile</button>
+                </form>
+                <form id="profilePhoto" action="/profilePhoto" method="POST">
+                        <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+                        <button id="addProfilePhotoBtn" type="submit">Add Profile Photo</button>
+                </form>
+
+
+                <a href="http://localhost:3000/createcard"><button>Create Card</button></a>
+                <a href="http://localhost:3000/inbox"><button>Inbox</button></a>
+                <a href="http://localhost:3000/sent"><button>Sent</button></a>
+
+                <%  } %>
+
+                <%  } %>
+
+                <%  } %>
+
+                <h1 id="loggedInAs">"Hello <%= logInName %> !"</h1>
+
+                <%  } %>
+        </div>
+        <!--end headerBtns-->
+</header>
+
+
+<body>
+
+        <div id="contentWrapper">
+                <div id="div1">Welcome to "Greetings, World!". Do you have a special occassion to send a card to
+                        your
+                        Track 2
+                        classmate?
+                        "Greetings, World!" is a great place to do that! Say "Hello" to the Track 2 world with a
+                        custom
+                        greeting
+                        card that you've
+                        personalized yourself. Take a break from your coding and send a card. It's free!
+                </div>
+                <!--end div1-->
+
+                <div id="div2">
+                        <h3>These are covers to some wonderful cards you could be making yourself!</h3>
+                        <div id="selectImgWrapper">
+                                <div id="selectImgDiv">
+
+                                        <span><label>I love You much!</label><img class="selectedImg"
+                                                        src="photos/redRose.jpeg" alt="red rose" /></span>
+                                        <span><label>Happy Birthday!!</label><img class="selectedImg"
+                                                        src="photos/gift1.jpeg" alt="gift1" /></span>
+                                        <span><label>Happy Birthday!</label><img class="selectedImg"
+                                                        src="photos/gift2.jpeg" alt="gift2" /></span>
+                                        <span><label>Happy Holidays!</label><img class="selectedImg"
+                                                        src="photos/snowman.jpeg" alt="snowman" /></span>
+
+
+                                        <span><label>I'm Missing You!</label><img class="selectedImg"
+                                                        src="photos/cartoonFlowers.jpeg" alt="cartoon flowers" /></span>
+                                        <span><label>How are you
+                                                        cutie?</label><img class="selectedImg" src="photos/cuteCat.jpeg"
+                                                        alt="cute cat" /></span>
+                                        <span><label>Great with a camera!</label><img class="selectedImg"
+                                                        src="photos/girlWithCamera.jpeg"
+                                                        alt="girl with camera" /></span>
+                                        <span><label>Happy Anniversary!</label><img class="selectedImg"
+                                                        src="photos/heartPassage.jpeg" alt="heart passage" /></span>
+
+
+
+                                        <span><label>Happy Anniversary!</label><img class="selectedImg"
+                                                        src="photos/pinkRoses.jpeg" alt="pink roses" /></span>
+                                        <span><label>I love you much!</label><img class="selectedImg"
+                                                        src="photos/purpleSunset.jpeg" alt="purple sunset" /></span>
+                                        <span><label>Happy Holidays!</label><img class="selectedImg"
+                                                        src="photos/snowyWhite.jpeg" alt="snowy white" /></span>
+                                        <span><label>God Bless You!</label><img class="selectedImg"
+                                                        src="photos/threeCrosses.jpeg" alt="three crosses" /></span>
+
+
+
+                                        <span><label>Come Play with me!</label><img class="selectedImg"
+                                                        src="photos/playhouse.jpeg" alt="playhouse" /></span>
+
+                                        <span><label>I'm happy for you!</label><img class="selectedImg"
+                                                        src="photos/womanAndSunset.jpeg"
+                                                        alt="woman and sunset" /></span>
+                                        <span><label>Love my daughter!</label><img class="selectedImg"
+                                                        src="photos/alphabets1.jpeg" alt="alphabets1" /></span>
+                                        <span><label>I Love you son!</label><img class="selectedImg"
+                                                        src="photos/alphabets2.jpeg" alt="alphabets2" /></span>
+
+
+
+                                        <span><label>Happy Birthday!</label><img class="selectedImg"
+                                                        src="photos/balloonBaby.jpeg" alt="balloon baby" /></span>
+
+                                        <span><label>Lets play a game!</label><img class="selectedImg"
+                                                        src="photos/play.jpeg" alt="play" /></span>
+                                        <span><label>Happy Anniversary!</label><img class="selectedImg"
+                                                        src="photos/redHeartTree.jpeg" alt="red heart tree" /></span>
+                                        <span><label>Lets have somefun!</label><img class="selectedImg"
+                                                        src="photos/toys.jpeg" alt="toys" /></span>
+
+
+
+                                        <span><label>I love minions!</label><img class="selectedImg"
+                                                        src="photos/minions.jpeg" alt="minions" /></span>
+                                        <span><label>We're friends forever!</label><img class="selectedImg"
+                                                        src="photos/twoGirls.jpeg" alt="two girls" /></span>
+
+                                        <span><label>You're so creative!</label><img class="selectedImg"
+                                                        src="photos/crayons.jpeg" alt="crayons" /></span>
+                                        <span><label>I love you much!</label><img class="selectedImg"
+                                                        src="photos/childsLove.jpeg" alt="childs love" /></span>
+                                        <span><label>Love you daughter!</label><img class="selectedImg"
+                                                        src="photos/teddyCarousel.jpeg" alt="teddy carousel" /></span>
+
+
+                                        <span><label>Congradulations!</label><img class="selectedImg"
+                                                        src="photos/graduates1.jpeg" alt="graduates1" /></span>
+
+                                        <span><label>Yes, we did it!</label><img class="selectedImg"
+                                                        src="photos/graduates2.jpeg" alt="graduates2" /></span>
+                                        <span><label>Happy Anniversary!</label><img class="selectedImg"
+                                                        src="photos/pinkPaperFlowers.jpeg"
+                                                        alt="pink paper flowers" /></span>
+                                        <span><label>I'm so happy for you!</label><img class="selectedImg"
+                                                        src="photos/hoorah.jpeg" alt="hoorah" /></span>
+
+                                        <span><label>Happy Anniversary!</label><img class="selectedImg"
+                                                        src="photos/heartWave.jpeg" alt="heart wave" /></span>
+                                        <span><label>How are you today?</label><img class="selectedImg"
+                                                        src="photos/hummingBird.jpeg" alt="humming bird" /></span>
+
+                                </div>
+                                <!--end selectImgDiv-->
+                        </div>
+                        <!--end selectImgWrapper-->
+                </div>
+                <!--end div2-->
+
+        </div>
+        <!--end contentWrapper-->
+
+
+        <div id="floatRight">
+                <!--============================================
+                                        log in
+                        ==============================================-->
+                <%if (!(logInName)){ %>
+                <div id="LogInWrapper">
+
+                        <div id="logInBody">
+                                <div id="left">
+                                        <form id="LogInForm" name="logIn" action="/logIn" method="POST">
+                                                <h1 id="logInH1">Log In:</h1>
+                                                <h2>Enter user name:</h2>
+                                                <input type="text" id="logInName" name="name" autocomplete="off"
+                                                        required />
+                                                <br>
+                                                <span style="color:red"><%= wrongName %></span>
+                                                <h2>Enter Password:</h2>
+                                                <input type="password" id="enterPswd" name="password" required />
+                                                <br>
+                                                <span style="color:red"><%= wrongPswd %></span>
+                                                <div id="LogInSubmitDiv">
+                                                        <input type="submit" id="logInBtn" value="Log In" />
+                                                </div>
+                                        </form>
+                                </div>
+                                <div id="right">
+
+                                        <h1 id="signUpH1">Not a member?</h1>
+                                        <button id="signUpBtn">Sign Up</button>
+                                </div>
+                        </div>
+
+                </div>
+                <%  } %>
+
+
+
+
+                <!--============================================
+                                        CREATE Profile
+                        ==============================================-->
+                <div id="createProfileWrapper">
+                        <form id="createProfileForm" name="createProfile" action="/createProfile" method="POST">
+                                <div id="createProfileBody">
+                                        <div id="left">
+                                                <h1 id="createProfile">Create Profile</h1>
+                                                <h2>Enter user name:</h2>
+                                                <input type="text" id="newUser" name="name" autocomplete="off"
+                                                        required />
+                                                        <br>
+                                                <span id="alreadyExists" style="color:red"><%= alreadyExists %></span>
+
+
+                                                <h2>Create Password:</h2>
+                                                <input type="password" id="createdPswd" name="password" required />
+
+                                                <h2>Confirm Password:</h2>
+                                                <input type="password" id="confirmPswd" name="confirmPswd" required />
+                                                <br>
+                                                <span id="mustMatch" style="color:red"><%= mustMatch %></span>
+
+                                        </div>
+                                        <div id="right">
+                                                <h2>Bio:<span style="font-size:10px; font-weight:normal;">(1500
+                                                                characters max)</span></h2>
+                                                <textarea id="bio" name="bio" cols=45 rows=25
+                                                        maxlength="1500"></textarea>
+                                        </div>
+                                </div>
+                                <!--end createProfileBody-->
+                                <div id="createProfile">
+                                        <button id="cancel">Cancel</button>
+                                        <input type="submit" id="done" value="Done" />
+                                </div>
+                                <!--end createProfileButtons-->
+                        </form>
+                </div>
+                <!--end createProfileWrapper-->
+
+
+        </div>
+
+        <script src="js/index.js"></script>
+
+</body>
+
+</html>

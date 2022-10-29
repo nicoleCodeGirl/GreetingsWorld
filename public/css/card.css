@@ -1,0 +1,183 @@
+/*============================
+        CARD
+=============================*/
+#cardContainer {
+    display: flex;
+    padding: 0px;
+    height:564px;
+    width: 55%;
+    background-color: aliceblue; 
+}
+
+#generaterWrapper {
+    float: left;
+}
+
+#div1{
+    background-color: cyan;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    border: 25px solid red;
+    padding: 20px;
+    width: 62%;
+    margin: 0 auto;
+}
+
+#div2{
+    background-color: cyan;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 16px;
+    text-align: left;
+     border: 25px solid orange;
+    padding: 20px;
+    width: 62%;
+    height: 357px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#div2 div {
+    margin: 5px;
+}
+
+#cardPreviewP{
+    color:white;
+}
+
+#inside {
+    height:525px;
+    width: 75%;
+    margin: 0px auto 10px auto;
+    border: 15px dotted purple;
+    padding: 5px;
+    display: none;
+    text-align: center;
+}
+
+#cardGreeting {
+    position: relative;
+    z-index: 20;
+    background-color: transparent;
+    height: 62px;
+}
+
+#cardGreeting,#cardMsg {
+    font-size: 150%;
+}
+
+        #front {
+            height:524px;
+            width: 75%;
+            margin: 0px 3px 10px 0px;
+            border: 15px dotted purple;
+            padding: 5px;
+            display: none;
+            text-align: center;
+
+        }
+
+        #imgFront {
+            position: relative;
+            top: -103px;
+            height: 100%;
+            width: 100%;
+            /* margin-top: -67px; */
+            mix-blend-mode: normal;
+            isolation: isolate;
+
+        }
+
+        #draw {
+            position: relative;
+            float: right;
+        }
+
+
+        #selectImgWrapper{
+          width:230px;
+        }
+
+        .selectedImg{
+             margin:5px;
+            display: inline-flex;
+            height: 148px;
+            width: 139px;
+        }
+
+        #selectImgDiv{
+            height: 179px;
+            width:330px;
+            overflow: scroll;
+            border: 1px solid purple;
+            background-color: rgb(68, 236, 236);
+        }
+
+        #imageInput{
+            display:none;
+        }
+
+        #imgSelectedLabel{
+            font-size: 12px;
+            color:darkblue;
+        }
+
+
+        /*=============================
+                send card marquee
+        ==============================*/
+        .Scroller {
+            width:54.9%;
+            margin: 5px;
+            border: 1px dotted pink;
+            background-color: pink;
+            padding: 0;
+            display: flex;
+            font-size: 16px;
+            color:blue;
+           
+        }
+
+        .Marquee {
+            margin: 9px 12px 9px 12px;
+            width:100%;
+            background: rgba(169, 110, 227, 0.4);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .Marquee-content {
+            display: flex;
+            animation: marquee 7s linear infinite running;
+            margin: 0;
+            padding: 0;
+        }
+
+     
+
+        .Marquee-tag-Content {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            min-width: 420px;
+            margin-top: 3px;
+            font-size: 150%;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translate(25%);
+            }
+
+            50% {
+                transform: translate(50%);
+            }
+            100% {
+                transform: translate(100%);
+            }
+        }

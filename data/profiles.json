@@ -1,0 +1,63 @@
+[{
+	
+	"name" : "Kinzie",
+	"password" : "octoFabulous28",
+	"createdAt" : "Jan 03 2020 12:08:32",
+	"bio" : "My hobbies include crocheting, anything sci-fi and reading. I've been told that I often act older than my young years. My favorite animal is an octopus and my favorite color is orange. I love to train service dogs during my free time. Currently I am training a terrier mix named Sparky who I just adore....although I think the feeling is mutual. I plan on going to law school to become a lawyer and would love to work in the tech field as well. My ultimate dream is to start a non-profit which would promote restorative justice opportunities for the community. A few items on my bucket list include: visiting the Smithsonian, helping to make a Rose Parade float and reading every book ever written by C.S. Lewis.",
+	"__v" : 0,
+	"profilePhoto" : "kinzie.jpeg"
+},
+{
+
+	"name" : "Savvy",
+	"password" : "5555",
+	"createdAt" : "Jan 03 2020 12:10:43",
+	"bio" : "My name is Sandra Bustos and I am 32 years young. I like a challenge which is why I love to code. I'm on my 13th year of incarceration but that will not stop me from reaching the stars. Everyday I wake up thanking God for another day. I keep striving every moment that comes my way by keeping a positive attitude. I work out weekend mornings to keep up the good energy. I have a beautiful family that cannot wait for me to come home. I love penguins because once they find their mate they stay together forever.\r\nLastly I have committed this year to live for the moment and not worry about tomorrow, love myself and be kind to everyone around me.",
+	"__v" : 0,
+	"profilePhoto" : "savvy.jpeg"
+},
+{
+
+	"name" : "riri_baby",
+	"password" : "wayne2010",
+	"createdAt" : "Jan 03 2020 12:11:24",
+	"bio" : "HI my name is Rianne. People always pronounce my name wrong and I find it super irritating, even though I do not correct people most of the time. I am outgoing and closed off at the same time. Do not ask me how that works because I could not tell you. I'm majoring in sociology and desire to obtain a masters degree. I honestly do not know what field of work I want to go into. I just like learning about life, people, social structures, culture, and systemic impacts. My love language is gifts! Omg how I love a good gift 🥰. I feel prettiest when I am fresh out of the shower. My favorite colors are purple, pink, mint, and deep red. Cool colors right? I love children. I find myself passionate about womens' rights and prison reform. The person who inspires me the most is my mother. Her strength and resilience makes her my hero. I love the way she refuses to give up no matter how hard life gets for her. I try to embody her strength when I find myself in hard times. I am awesome, fearless, resilient, intellectual, and down to earth.",
+	"__v" : 0
+},
+{
+	
+	"name" : "Melissa A. Mercado",
+	"password" : "Melibee",
+	"createdAt" : "Jan 03 2020 12:12:21",
+	"bio" : "I am Mexican American woman from Los Angeles CA. I am 32 years old with two children. Growing up in foster care and trauma cause me to get involved with drugs and gangs. Consequently, at 16 I committed a crime earning me a 21 year prison term. While in prison I took advantage of self-help groups and education opportunities. I learned most of my skills while in prison and learned who I am while here so now I am ready to pursue new dreams and take one the world.Currently, I hold a position is web development for TLM and a full time student at Chaffey college. When not working, I like to read and watch movies. However, I also like the outdoors. My main goal in like is to make my mark in the world and for my children. I plan to do that with teaching foster children as well as my children their value.",
+	"__v" : 0,
+	"profilePhoto" : "melissa.jpg"
+},
+{
+
+	"name" : "Nicole",
+	"password" : "Nikki",
+	"createdAt" : "Jan 03 2020 12:17:12",
+	"bio" : "Hello everyone! I love coding and I am so excited to be able to show you my exciting project. I love arts and crafts. I love computers. Ever since I was a little girl, I have had my own computer. I remember my dad taking me to work when I was about 6 and I changed his desktop to all sorts of rainbow fonts and backgrounds and he was curious how I did it. \"I just opened up every file, dad!\" Ha. I love to learn. I have always wanted to study coding since I was young. I also love math and I got my A.S in Accounting. I love butterflies, sunflowers, and sunsets. ",
+	"__v" : 0,
+	"profilePhoto" : "nicole.jpeg"
+},
+{
+
+	"name" : "Amy",
+	"password" : "wowza",
+	"createdAt" : "Jan 03 2020 12:35:25",
+	"bio" : "My name is Amy and I am sending words of encouragement and inspiration. I love sports like golf and tennis. I love live music. I am adventurous and running  my \"last mile\" towards freedom. I am teeing off to new adventures this year in 2020! I hope you are empowered for exciting things this year!! 🏌️‍♀️  ",
+	"__v" : 0,
+	"profilePhoto" : "amy.jpeg"
+},
+{
+
+	"name" : "Kimberly",
+	"password" : "123",
+	"createdAt" : "Jan 03 2020 12:51:57",
+	"bio" : "I enjoy skating, reading, going to church. I want to try fishing. I enjoy nature and life and I'll never take my freedom for granted.",
+	"__v" : 0,
+	"profilePhoto" : "kim.jpeg"
+}
+]

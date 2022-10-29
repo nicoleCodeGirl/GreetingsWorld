@@ -1,0 +1,46 @@
+#addPhotoWrapper {
+    background-color: cyan;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    border: 25px solid orange;
+    padding: 20px;
+    height: 400px;
+    margin: 100px 100px 100px 100px;
+
+}
+
+
+#editPhotoBody{
+    display:flex;
+    border:1px solid red; 
+}
+
+#left{
+    float:left;
+    flex:3;
+    width:55%;
+    border: 1px solid pink;
+    height: 100%;
+}
+
+#right{
+    flex:1;
+    float:right;
+    display:flex;
+    width: 40%;
+    border: 1px solid purple;
+    height: 100%;
+}
+
+/*======================================
+       PROFILE PHOTO
+=======================================*/
+
+#chosenImg{
+    margin: auto;
+    width: 185px;
+    height: 185px; 
+    border-radius: 50%;
+    background: white;
+}

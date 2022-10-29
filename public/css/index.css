@@ -1,0 +1,149 @@
+/*============================
+       HOME PAGE DIVS
+=============================*/
+#contentWrapper{
+    width: 62%;
+    margin: 0px auto 0px auto;
+    float:left;
+}
+
+#div1, 
+#div2 {
+    color: white;
+    text-shadow: 6px 3px 1px #08139D;
+    background-color: #78aed9a1;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-align: justify;
+    padding: 20px;
+    margin: 0 auto; 
+}
+
+#div1{
+    /* font-size: 45px; */
+    border: 25px solid red;
+}
+
+#div2 {
+    /* font-size: 36px; */
+    border: 25px solid orange;
+    height: auto;
+}
+
+
+/*======================================
+       PREVIEW OF CARDS YOU CAN MAKE
+=======================================*/
+#selectImgWrapper{
+    width:100%;
+}
+
+#selectImgDiv img{
+    position: relative;
+    height: 211px;
+    width:243px;
+    margin:5px;
+    top:-25px;
+}
+
+
+
+#selectImgDiv{
+    height: auto;
+    width:97%;
+    overflow: scroll;
+    border: 1px solid purple;
+    background-color: rgb(68, 236, 236); 
+    display:flex;
+    
+}
+
+#selectImgDiv span{
+    height:auto;
+    text-align: left;
+}
+
+label{
+    color: #cbe114;
+    text-shadow: 10px 5px 9px #178d6d, -6px -9px 11px #d72ed2;
+    position: relative;
+    z-index: 2; 
+    margin-left:3px;
+    height:15px;
+    left:6px;
+    font-size:20px;
+    top:5px;
+   
+   
+}
+
+
+::-webkit-scrollbar {width: 9px; height: 20px; background: rgba(236, 173, 206, 0.678); }
+::-webkit-scrollbar-corner {width: 9px; height: 10px; background: rgba(236, 173, 206, 0.678); }
+::-webkit-scrollbar-thumb { background-color: rgb(93, 0, 255); } 
+  
+#floatRight{
+    float:right;
+    margin:10px;
+    width: 34%;
+}
+
+#logInWrapper,
+#createProfileWrapper {
+    background-color: cyan;
+    font-family: "Arial Black", Gadget, sans-serif;
+    /* font-size: 16px; */
+    /* font-size: 28.6px; */
+    text-align: center;
+    border: 25px solid orange;
+    padding: 20px;
+    height: auto;
+    margin: -10px 20px 0px auto;
+
+}
+
+#logInBody,
+#createProfileBody{
+    display:flex;
+    border:1px solid red;
+    
+}
+#logInWrapper{
+    display:block;
+}
+
+#createProfileWrapper{
+    display:none;
+}
+
+#logInH1,
+#signUpH1{
+    color:purple;
+    text-shadow:2px 2px 1px pink;
+}
+
+#left, #right{
+    margin:5px;
+    border:1px solid pink;
+    width: 50%;
+}
+
+#LogInSubmitDiv{
+    margin:10px;
+}
+
+#logInBtn, 
+#signUpBtn{
+    background: -webkit-linear-gradient(lavender,
+                royalBlue,
+                #8178c9
+               );
+    color:white;
+    width: 75%;
+    height: 35px;
+}
+
+#loginName,
+#enterPswd{
+    width: 75%;
+    height: 35px;
+}

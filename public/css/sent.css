@@ -1,0 +1,194 @@
+/*============================
+        CARD
+=============================*/
+#cardContainer {
+    display: flex;
+    padding: 0px;
+    height:564px;
+    width: 90%;
+    background-color: aliceblue; 
+}
+#contentWrapper{
+    display: flex;
+}
+
+#sentDiv,#inboxDiv{
+   flex:1;
+   margin:20px;
+}
+
+#flex3{
+    flex:3;
+}
+#div1 {
+    background-color: cyan;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    border: 25px solid red;
+    padding: 20px;
+    width: 62%;
+ 
+}
+
+#div2 {
+    background-color: cyan;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 16px;
+    text-align: left;
+     border: 25px solid orange;
+    padding: 20px;
+    width: 62%;
+    height: auto;
+    
+}
+
+#cardPreviewP{
+    color:white;
+}
+
+#inside {
+    height:525px;
+    width: 75%;
+    margin: 0px auto 10px auto;
+    border: 15px dotted transparent;
+    padding: 5px;
+    /* display: none; */
+    text-align: center;
+}
+
+#cardGreeting {
+    position: relative;
+    z-index: 20;
+    background-color: transparent;
+    height: 62px;
+}
+
+#cardGreeting,#cardMsg {
+    font-size: 150%;
+}
+
+#front {
+    height:524px;
+    width: 75%;
+    margin: 0px 3px 10px 0px;
+    border: 15px dotted transparent;
+    padding: 5px;
+    /* display: none; */
+    text-align: center;
+}
+
+#imgFront {
+    position: relative;
+    top: -103px;
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: normal;
+    isolation: isolate;
+}
+
+
+/*The cards in the sent folder*/
+.sentCards,
+.inboxCards{
+    border: 1px dashed pink;
+    background-color: plum;
+    margin:5px;
+}
+
+
+#sentFolderBtns button{
+    background-color: blue;
+    color:white;
+    width:49%;
+   
+}
+#sentFolderBtns{
+    margin: -11px 2px 40px 4px;
+}
+#closeCardPreview{
+    background-color: plum;
+    color:blue;
+}
+
+/*These are the card qualities needed for the javascript file*/
+.hidden{
+    display:none;
+}
+
+/*Replying to cards*/
+#replyDiv{
+    background-color: #cfabcbd4;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+    border: 10px solid purple;
+    padding: 10px;
+    width: 88%;
+    margin:20px auto 20px auto;
+}
+
+#replyDiv span{
+    text-shadow: 2px 2px 1px #ece0e9;
+}
+
+#msg{
+    margin: 26px;
+    width: 80%;
+    height: 54px;
+}
+
+#postBtn{
+    width: 80%;
+    margin: -23px auto 5px 8%;
+    height: 43px;
+    background-color: purple;
+    color:white;
+}
+
+#replies{
+    background-color: pink;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+    border: 10px solid purple;
+    padding: 10px;
+    width: 88%;
+    margin:20px auto 20px auto;
+    height:auto;
+}
+
+.deleteReply{
+    background-color: darkblue;
+    color:white;
+    float:right;
+}
+
+.textStyle{
+    text-shadow: 1px 2px 1px white;
+    color:purple;
+}
+
+
+.replyDate{
+    font-size: 14px;
+    margin-top: -20px;
+
+}
+
+.replyFrom,
+.replyDate,
+.replyMsg{
+    position: relative;
+    left:30px;
+}
+
+ /*======================================
+       PROFILE PHOTO IN THE REPLIES
+=======================================*/
+
+.replyProfilePhoto{
+    width: 80px;
+    height: 80px; 
+    border-radius: 50%;
+    border: 5px dotted purple;
+    float:left;
+}

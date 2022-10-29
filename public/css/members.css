@@ -1,0 +1,62 @@
+body{
+    color:white;
+    text-align: center;
+}
+
+
+/*============================
+        USER PROFILES
+============================*/
+
+.userProfile{
+    background-color: cyan;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 16px;
+    text-align: left;
+     border: 25px solid orange;
+    padding: 20px;
+    width: 62%;
+    height: auto;
+    margin: 10px auto 10px auto;
+    color:purple;
+}
+
+.userProfile span{
+    text-decoration: none;
+    color:magenta;
+}
+
+#sendCardBtn,
+.right{
+    float: right;
+}
+
+#sendCardBtn,
+#editProfileBtn,
+#addProfilePhotoBtn{
+
+    background: -webkit-linear-gradient(lavender,
+    royalBlue,
+    #8178c9
+   );
+    color:white;
+}
+
+/*======================================
+       PROFILE PHOTO
+=======================================*/
+
+.photoDiv,
+.profilePhoto{
+    width: 150px;
+    height: 150px; 
+    border-radius: 50%;
+}
+
+.photoDiv{
+    float:left; 
+    margin-right: 20px;
+    border: 5px dotted white;
+    /* background-image: url("../photos/player_icon copy.png"); */
+}
+

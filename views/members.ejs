@@ -1,0 +1,110 @@
+
+</html>
+<head>
+    <title>Members</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/members.css" />
+</head>
+
+<header>
+    <ul class="menu">
+        <li><a href="http://localhost:3000/">Home</a>
+        <li class="current"><a href="http://localhost:3000/members">Members</a></li>
+    </ul>
+
+
+    <h1 id="headerH1"> Greetings, World!</h1>
+    <div id="headerBtns">
+        <%if (logInName){ %>
+        <%if (members){ %>
+
+        <% for (let i = 0; i < members.length; i++){ %>
+
+        <%if (members[i].name == logInName){ %>
+
+        <div class="headerPhotoDiv">
+            <%if (members[i].profilePhoto){ %>
+            <img class="headerProfilePhoto" src="./photos/profilePhotos/<%= members[i].profilePhoto %>" />
+            <%  } else %>
+            <%if (!(members[i].profilePhoto)){ %>
+            <img class="headerProfilePhoto" src="./photos/player_icon copy.png" />
+            <%  } %>
+        </div>
+        <form id="logOutForm" action="/logOut" method="POST">
+            <button id="logOut" type="submit">Log Out</button>
+        </form>
+        <form id="editProfile" action="editProfile/<%= logInName %>" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="editProfileBtn" type="submit">Edit Profile</button>
+        </form>
+        <form id="profilePhoto" action="/profilePhoto" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="addProfilePhotoBtn" type="submit">Add Profile Photo</button>
+        </form>
+
+
+        <a href="http://localhost:3000/createcard"><button>Create Card</button></a>
+        <a href="http://localhost:3000/inbox"><button>Inbox</button></a>
+        <a href="http://localhost:3000/sent"><button>Sent</button></a>
+
+        <%  } %>
+
+        <%  } %>
+
+        <%  } %>
+
+        <h1 id="loggedInAs">"Hello <%= logInName %> !"</h1>
+
+        <%  } %>
+    </div>
+    <!--end headerBtns-->
+</header>
+
+
+<body>
+    <% if (members.length > 0){ %>
+    <% for (let i = 0; i < members.length; i++){ %>
+    <div class="userProfile">
+        <div class="photoDiv">
+            <%if (members[i].profilePhoto){ %>
+            <img class="profilePhoto" src="./photos/profilePhotos/<%= members[i].profilePhoto %>" />
+            <%  } else %>
+            <%if (!(members[i].profilePhoto)){ %>
+            <img class="profilePhoto" src="./photos/player_icon copy.png" />
+            <%  } %>
+        </div>
+        
+        <h2>User Name: <span id="thisMember"> <%= members[i].name %></span></h2>
+        <h2>Date Joined: <span> <%= members[i].createdAt %></span></h2>
+        <h3>Bio: <span><%= members[i].bio %></span></h3>
+
+        <%if (logInName && (members[i].name != logInName)){ %>
+        <form id="sendMemberCard" action="sendMemberCard" method="POST">
+            <input id="memberName" name="name" type="text" style="display:none" value=" <%= members[i].name %>" ">
+         <button type=" submit" id="sendCardBtn">Send this member a card!</button>
+        </form>
+        <% } %>
+        <!--end if members != logInName-->
+
+    </div>
+    <!---end userProfile-->
+    <%  } %>
+    <!--end for loop memebers-->
+    <% }%>
+    <!--end if members.length-->
+
+
+    <% if (members.length == 0){ %>
+    <h1>There are currently no members....</h1>
+    <%  } %>
+
+
+
+</body>
+
+<!-- <script src="js/jquery.js"></script> -->
+<script src="js/members.js"></script>
+
+</html>

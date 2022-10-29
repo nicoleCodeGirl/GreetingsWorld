@@ -1,0 +1,215 @@
+</html>
+
+<head>
+    <title>Inbox Cards</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/sent.css" />
+</head>
+
+<header>
+    <ul class="menu">
+        <li><a href="http://localhost:3000/">Home</a>
+        <li><a href="http://localhost:3000/members">Members</a></li>
+    </ul>
+
+
+    <h1 id="headerH1"> Greetings, World!</h1>
+    <div id="headerBtns">
+        <%if (logInName){ %>
+        <%if (members){ %>
+
+        <% for (let i = 0; i < members.length; i++){ %>
+
+        <%if (members[i].name == logInName){ %>
+
+        <div class="headerPhotoDiv">
+            <%if (members[i].profilePhoto){ %>
+            <img class="headerProfilePhoto" src="./photos/profilePhotos/<%= members[i].profilePhoto %>" />
+            <%  } else %>
+            <%if (!(members[i].profilePhoto)){ %>
+            <img class="headerProfilePhoto" src="./photos/player_icon copy.png" />
+            <%  } %>
+        </div>
+        <form id="logOutForm" action="/logOut" method="POST">
+            <button id="logOut" type="submit">Log Out</button>
+        </form>
+        <form id="editProfile" action="editProfile/<%= logInName %>" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="editProfileBtn" type="submit">Edit Profile</button>
+        </form>
+        <form id="profilePhoto" action="/profilePhoto" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="addProfilePhotoBtn" type="submit">Add Profile Photo</button>
+        </form>
+
+
+        <a href="http://localhost:3000/createcard"><button>Create Card</button></a>
+        <a href="http://localhost:3000/inbox"><button>Inbox</button></a>
+        <a href="http://localhost:3000/sent"><button>Sent</button></a>
+
+        <%  } %>
+
+        <%  } %>
+
+        <%  } %>
+
+        <h1 id="loggedInAs">"Hello <%= logInName %> !"</h1>
+
+        <%  } %>
+    </div>
+    <!--end headerBtns-->
+</header>
+
+
+<body>
+    <div id="contentWrapper">
+
+        <div id="inboxDiv">
+            <div id="div1">Inbox Cards</div>
+            <div id="div2" class="inboxdiv2">
+                <%if (inboxCards){ %>
+                <%  for(let i=0; i< inboxCards.length; i++){ %>
+                <% if(inboxCards[i].to == logInName){ %>
+                <form action="/inboxFolder" method="POST" />
+                <div class="inboxCards">
+                    <input type="text" name="sentFrom" value="<%= inboxCards[i].from %>" style="display:none;" />
+                    <input type="text" name="cardId" value="<%= inboxCards[i]._id %>" style="display:none;" />
+                    <p>From: <%= inboxCards[i].from %></p>
+                    <p>Date: <%= inboxCards[i].date %></p>
+                </div>
+                <div id="sentFolderBtns">
+                    <button class="previewBtn" type="submit" name="submit" value="preview">Preview</button>
+                    <button class="deleteBtn" type="submit" name="submit" value="delete">Delete</button>
+                </div>
+                </form>
+                <%  } %>
+                <%  } %>
+                <% } %>
+            </div>
+        </div>
+
+
+
+        <div id="flex3">
+            <form action="/closeCardPreview" method="POST">
+                <p id="cardPreviewP">Card Preview: <button type="submit" id="closeCardPreview" name="closedFrom">Close
+                        Card Preview</button></p>
+            </form>
+
+
+            <div id="cardContainer">
+                <div id="front">
+                    <% if(inboxPreviewedCard){ %>
+                    <h2 id="cardGreeting"><%= inboxPreviewedCard[0].greeting %></h2>
+                    <img id="imgFront" src="<%= inboxPreviewedCard[0].imagePath %>" />
+                    <% } %>
+                </div>
+                <div id="inside">
+                    <% if(inboxPreviewedCard){ %>
+                    <h2 id="cardRecipient"><%= inboxPreviewedCard[0].to %></h2>
+                    <h3 id="cardMsg"><%= inboxPreviewedCard[0].message %></h3>
+                    <h3 id="cardSender"><%= inboxPreviewedCard[0].from %></h3>
+                    <% } %>
+                </div>
+            </div>
+            <!--end card container-->
+
+
+
+        <% if(inboxPreviewedCard){ %>
+            <% if(inboxPreviewedCard[0].sent == "deleted"){ %>
+
+            <h1 style="color:white;">Sender deleted card from their folder. You are unable to post any more replies. You
+                may create a new
+                card though.</h1>
+
+            <% } else %>
+            <!--end if(inboxPreviewedCard[0].sent == "deleted")-->
+            <% if(inboxPreviewedCard[0].sent == "recieved"){ %>
+
+            <div id="replyDiv">
+                <form action="/inboxReplies" method="POST">
+                    <div class="hidden">
+                        <input type="text" name="cardId" value="<%= inboxPreviewedCard[0]._id %>" />
+                        <input type="text" name="from" value="<%= logInName %>" />
+                    </div>
+                    <span>Post Reply:</span><textarea id="msg" name="message" cols=120 rows=5 maxlength="326"
+                        name="message"></textarea>
+                    <button type="submit" id="postBtn">POST</button>
+                </form>
+            </div>
+
+            <% } %>
+            <!--end if(inboxPreviewedCard[0].sent == "recieved")-->
+
+
+            <% for(let i = inboxReplies.length - 1; i >= 0; i--){ %>
+            <div id="replies">
+                <%if (logInName && inboxReplies[i].from == logInName){ %>
+                <form action="/deleteReply" method="POST">
+                    <input type="text" name="cardId" value="<%= inboxPreviewedCard[0]._id %>" style="display:none;" />
+                    <input type="text" name="replyId" value="<%= inboxReplies[i]._id %>" style="display:none;" />
+                    <button type="submit" class="deleteReply" name="deleteFrom" value="inbox">delete</button>
+                </form>
+                <% } %>
+                <!--end (logInName && inboxReplies[i].from == logInName)-->
+
+
+                <%if (members){ %>
+                <% for (let j = 0; j < members.length; j++){ %>
+                <% if (members[j].name == inboxReplies[i].from){ %>
+
+                <%if (members[j].profilePhoto){ %>
+                <img class="replyProfilePhoto" src="./photos/profilePhotos/<%= members[j].profilePhoto %>" />
+                <%  } else %>
+                <%if (!(members[j].profilePhoto)){ %>
+                <img class="replyProfilePhoto" src="./photos/player_icon copy.png" />
+                <%  } %>
+                <!--end if (!(members[j].profilePhoto))-->
+                <% } %>
+                <!--end if (members[j].name == inboxReplies[i].from)-->
+                <% } %>
+                <!--end for (let j = 0; j < members.length; j++)-->
+                <% } %>
+                <!-- end if (members)-->
+
+
+
+                <p class="replyFrom">From: <span class="textStyle"><%= inboxReplies[i].from %></span></p>
+                <p class="replyDate">Date: <span class="textStyle"><%= inboxReplies[i].date %></span></p>
+
+                <div class="replyMsg">
+                    <p><span class="textStyle"><%= inboxReplies[i].message %></span></p>
+                </div>
+
+            </div>
+
+            <% } %>
+            <!--end for(let i = inboxReplies.length - 1; i >= 0; i--)-->
+        <% } %>
+            <!--end if (inboxPreviewedCard)-->
+
+        </div>
+        <!--end flex3 div-->
+
+    </div>
+    <!--end contentWrapper-->
+
+    <!--hidden card qualities of previewed card for javascript file-->
+    <% if(inboxPreviewedCard){ %>
+    <div class="hidden">
+        <p id="imageBlend"><%= inboxPreviewedCard[0].imageBlend %></p>
+        <p id="fontColour"><%= inboxPreviewedCard[0].fontColour %></p>
+        <p id="textShadow"><%= inboxPreviewedCard[0].textShadow %></p>
+        <p id="backgroundColour"><%= inboxPreviewedCard[0].backgroundColour %></p>
+        <p id="borderStyle"><%= inboxPreviewedCard[0].borderStyle %></p>
+        <p id="borderColour"><%= inboxPreviewedCard[0].borderColour %></p>
+    </div>
+    <% } %>
+
+    <script src="js/sent.js"></script>
+</body>
+
+</html>

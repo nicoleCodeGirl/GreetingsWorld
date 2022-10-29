@@ -1,0 +1,101 @@
+
+<html>
+<head>
+    <title>Add Profile Photo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/profilePhoto.css" />
+</head>
+
+<header>
+
+    <ul class="menu">
+        <li><a href="http://localhost:3000/">Home</a>
+        <li><a href="http://localhost:3000/members">Members</a></li>
+    </ul>
+
+
+    <h1 id="headerH1"> Greetings, World!</h1>
+    <div id="headerBtns">
+        <%if (logInName){ %>
+        <%if (members){ %>
+
+        <% for (let i = 0; i < members.length; i++){ %>
+
+        <%if (members[i].name == logInName){ %>
+
+        <div class="headerPhotoDiv">
+            <%if (members[i].profilePhoto){ %>
+            <img class="headerProfilePhoto" src="./photos/profilePhotos/<%= members[i].profilePhoto %>" />
+            <%  } else %>
+            <%if (!(members[i].profilePhoto)){ %>
+            <img class="headerProfilePhoto" src="./photos/player_icon copy.png" />
+            <%  } %>
+        </div>
+        <form id="logOutForm" action="/logOut" method="POST">
+            <button id="logOut" type="submit">Log Out</button>
+        </form>
+        <form id="editProfile" action="editProfile/<%= logInName %>" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="editProfileBtn" type="submit">Edit Profile</button>
+        </form>
+        <form id="profilePhoto" action="/profilePhoto" method="POST">
+            <input type="text" style="display:none;" value="<%=members[i]._id %>" name="memberId" />
+            <button id="addProfilePhotoBtn" type="submit">Add Profile Photo</button>
+        </form>
+
+
+        <a href="http://localhost:3000/createcard"><button>Create Card</button></a>
+        <a href="http://localhost:3000/inbox"><button>Inbox</button></a>
+        <a href="http://localhost:3000/sent"><button>Sent</button></a>
+
+        <%  } %>
+
+        <%  } %>
+
+        <%  } %>
+
+        <h1 id="loggedInAs">"Hello <%= logInName %> !"</h1>
+
+        <%  } %>
+    </div>
+    <!--end headerBtns-->
+</header>
+
+
+<body>
+    <!--============================================
+                ADD PROFILE PHOTO
+    ==============================================-->
+    <%if (addPhoto_memberId){ %>
+    <div id="addPhotoWrapper">
+        <div id="addPhotoBody">
+            <div id="left">
+                <p>Choose your profile photo:</p>
+                <form name="members" id="profilePhoto" action="/upload" method="POST" enctype="multipart/form-data">
+                    <input type="file" id="i_file" value="" accept="image/*" name="upload">
+                    <input type="text" style="display:none;" value="<%=addPhoto_memberId %>" name="memberId" />
+                    <input type="text" id="disp_tmp_path" name="blob" style="display:none;" />
+                    <input type="submit" id="i_submit" value="Upload">
+                </form>
+
+            </div>
+
+            <div id="right">
+
+                <img id="chosenImg" src="" width="200" style="display:none;" name="chosenImage" />
+
+            </div>
+
+        </div>
+        <!--end addPhotoWrapper-->
+        <%  } %>
+
+</body>
+
+
+<script src="js/members.js"></script>
+<script src="js/profilePhoto.js"></script>
+
+</html>
